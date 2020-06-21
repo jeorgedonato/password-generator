@@ -1,1 +1,1 @@
-# password-generator
+<h2 align="center">Password Generator</h2>
