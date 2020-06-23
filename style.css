@@ -177,4 +177,7 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+header{
+  padding : 0px;
+}
 
