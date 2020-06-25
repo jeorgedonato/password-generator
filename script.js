@@ -15,10 +15,10 @@ let generatePassword = butId => {
   let pLen = prompt("Password Length should be minimum of 8 and maximum of 128 characters.");
   //Constructing object instead of array for better readability
   let passwordCriteria = {
-    'uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    'lowercase': 'abcdefghijklmnopqrstuvwxyz',
-    'numbers': '0123456789',
-    'special': `@%+'/!#$^?:;.(){}[]~`
+    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    lowercase: 'abcdefghijklmnopqrstuvwxyz',
+    numbers: '0123456789',
+    special: `@%+'/!#$^?:;.(){}[]~`
   };
   //Validating if string is convertible to int and if password is between 8-128 characters
   if (!isNaN(pLen) && parseInt(pLen) >= 8 && parseInt(pLen) <= 128) {
@@ -28,10 +28,10 @@ let generatePassword = butId => {
     let isSpecial = confirm("Does it include special characters?");
 
     //Checking the user's criteria to be added in string
-    let passwordChar = isLowerCase ? passwordCriteria['lowercase'] : '';
-    passwordChar += isUpperCase ? passwordCriteria['uppercase'] : '';
-    passwordChar += isNumeric ? passwordCriteria['numbers'] : '';
-    passwordChar += isSpecial ? passwordCriteria['special'] : '';
+    let passwordChar = isLowerCase ? passwordCriteria.lowercase : '';
+    passwordChar += isUpperCase ? passwordCriteria.uppercase : '';
+    passwordChar += isNumeric ? passwordCriteria.numbers : '';
+    passwordChar += isSpecial ? passwordCriteria.special : '';
 
     //Validating user's criteria if they chose at least one criteria 
     if (passwordChar !== '') {
@@ -42,22 +42,26 @@ let generatePassword = butId => {
         passInput += passwordChar.charAt(char);
       }
       // console.log(passInput)
+      let pPasswordInfo = document.querySelector("#p-password-info");
       document.getElementById("span-button").style.display = 'block';
+      pPasswordInfo.style.display = 'block';
+      document.getElementById("p-password-info").textContent = `Password Length : ${parseInt(pLen)} Characters /n
+      Lowercase : ${boolTranslate(isLowerCase)} /n
+      Uppercase : ${boolTranslate(isUpperCase)} /n
+      Numeric : ${boolTranslate(isNumeric)} /n
+      Special Characters : ${boolTranslate(isSpecial)}`;
       return passInput;
-      // `${passInput} Password Length : ${parseInt(pLen)} Characters
-      //                         Lowercase : ${boolTranslate(isLowerCase)} 
-      //                         Uppercase : ${boolTranslate(isUpperCase)} 
-      //                         Numeric : ${boolTranslate(isNumeric)} 
-      //                         Special Characters : ${isSpecial}`;
     } else {
       alert('Please select at least ONE Criteria');
       document.getElementById("span-button").style.display = 'none';
+      document.getElementById("p-password-info").style.display = 'none';
       return "Your secure password";
     }
 
   } else {
     alert("Password Characters should be between 8 - 128 characters.");
     document.getElementById("span-button").style.display = 'none';
+    document.getElementById("p-password-info").style.display = 'none';
     return "Your Secure Password";
   }
 }
