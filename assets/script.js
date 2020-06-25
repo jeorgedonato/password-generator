@@ -43,13 +43,27 @@ let generatePassword = butId => {
       }
       // console.log(passInput)
       let pPasswordInfo = document.querySelector("#p-password-info");
+      pPasswordInfo.innerHTML = "";
       document.getElementById("span-button").style.display = 'block';
       pPasswordInfo.style.display = 'block';
-      document.getElementById("p-password-info").textContent = `Password Length : ${parseInt(pLen)} Characters /n
-      Lowercase : ${boolTranslate(isLowerCase)} /n
-      Uppercase : ${boolTranslate(isUpperCase)} /n
-      Numeric : ${boolTranslate(isNumeric)} /n
-      Special Characters : ${boolTranslate(isSpecial)}`;
+      // console.log(pPasswordInfo)
+      let ulTag = document.createElement('ul');
+      pPasswordInfo.appendChild(ulTag);
+      let pLenChar = document.createElement('li');
+      pLenChar.textContent = `Password Length : ${parseInt(pLen)} Characters`;
+      ulTag.appendChild(pLenChar);
+      let pLowerChar = document.createElement('li');
+      pLowerChar.textContent = `Lowercase : ${boolTranslate(isLowerCase)}`;
+      ulTag.appendChild(pLowerChar);
+      let pUpperChar = document.createElement('li');
+      pUpperChar.textContent = `Uppercase : ${boolTranslate(isUpperCase)}`;
+      ulTag.appendChild(pUpperChar);
+      let pNumericChar = document.createElement('li');
+      pNumericChar.textContent = `Numeric : ${boolTranslate(isNumeric)}`;
+      ulTag.appendChild(pNumericChar);
+      let pSpecialChar = document.createElement('li');
+      pSpecialChar.textContent = `Special Characters : ${boolTranslate(isSpecial)}`;
+      ulTag.appendChild(pSpecialChar);
       return passInput;
     } else {
       alert('Please select at least ONE Criteria');
