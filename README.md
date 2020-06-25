@@ -2,7 +2,7 @@
 
 **Working Link:** https://jeorgedonato.github.io/password-generator/
 
-<p align="center">A dynamic website utilizing Javascript's native functions.</p>
+<p align="center">A dynamic website utilizing Javascript's native functions and HTML DOM methods.</p>
 
 **Technologies Used:**
 - **HTML**
