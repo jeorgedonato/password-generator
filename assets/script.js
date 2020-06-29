@@ -37,8 +37,8 @@ let generatePassword = butId => {
     if (passwordChar !== '') {
       for (let i = 1; i <= parseInt(pLen); i++) {
         let char = Math.floor(Math.random()
-          * passwordChar.length + 1);
-
+          * passwordChar.length);
+        console.log(char);
         passInput += passwordChar.charAt(char);
       }
       // console.log(passInput)
